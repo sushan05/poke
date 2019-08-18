@@ -6,5 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'poke';
+  title = 'PokeMon';
+  cars = ['Baleno', 'Swift', 'Verna', 'Scorpio', 'Celerio', 'Ciaz', 'City', 'Lamborgini'];
+
+  constructor() {
+    setTimeout(() => {
+      this.title = 'DoreMon'
+    }, 5000);
+  }
+
+  updateText() {
+    this.title = "SpiderMan";
+  }
+
 }
