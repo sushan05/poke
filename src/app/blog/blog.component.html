@@ -2,14 +2,13 @@
 
 <div>
     <div style="border-bottom: 1px solid grey; padding-bottom: 15px;">
-        <textarea class="add-border" cols="50" rows="7" [(ngModel)]="newBlog"></textarea>
+        <input class="add-border" type="text" [(ngModel)]="newBlog">
+        <br>
+        <br>
         <div>
-            <button class="add-border" (click)="addNewBlog()">Submit Blog</button>
+            <button type="button" class="btn btn-primary" (click)="addNewBlog()">Submit Blog</button>
         </div>
     </div>
 
-    <h2 *ngIf="blogList.length > 0">My Blogs</h2>
-    <ul>
-        <li *ngFor="let blog of blogList"> {{blog}} </li>
-    </ul>
+    <app-list [listData]="blogList" dataInfo="Blog List"></app-list>
 </div>

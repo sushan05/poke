@@ -3,7 +3,8 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-blog',
   templateUrl: './blog.component.html',
-  styleUrls: ['./blog.component.css']
+  styleUrls: ['./blog.component.css'],
+   
 })
 export class BlogComponent {
 
@@ -20,6 +21,9 @@ export class BlogComponent {
 
     this.blogList.push(this.newBlog);
     this.newBlog = '';
+
+    console.log(this.blogList);
+    this.blogList = [... this.blogList];
   }
 
 }
