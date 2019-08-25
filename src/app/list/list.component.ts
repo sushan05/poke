@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'app-list',
@@ -8,8 +8,9 @@ import { Component, Input } from '@angular/core';
 export class ListComponent {
    @Input() listData: Array<string>;
    @Input() dataInfo: string;
+   @Output() deleteClick = new EventEmitter;
 
    removeElement(i: number) {
-       this.listData.splice(i, 1);
+    this.deleteClick.emit(i);
    }
 }

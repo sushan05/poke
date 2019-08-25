@@ -10,5 +10,5 @@
         </div>
     </div>
 
-    <app-list [listData]="blogList" dataInfo="Blog List"></app-list>
+    <app-list [listData]="blogList" dataInfo="Blog List" (deleteClick)="deleteItem($event )"></app-list>
 </div>

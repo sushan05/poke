@@ -26,4 +26,8 @@ export class BlogComponent {
     this.blogList = [... this.blogList];
   }
 
+  deleteItem(i: number): void {
+    this.blogList.splice(i, 1);
+  }
+
 }

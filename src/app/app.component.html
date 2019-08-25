@@ -1,5 +1,28 @@
-<div class="container">
-  <app-blog></app-blog>
+<div class="card text-center">
+  <div class="card-header">
+    <ul class="nav nav-pills card-header-pills">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="hello">Hello</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="card-body">
+      <router-outlet></router-outlet>
+  </div>
+</div>
+
+<!-- <div class="container"> -->
+  <!-- <div style="margin-bottom: 10px; border-bottom:1px solid black;">
+    <a routerLink="">Home</a>
+    <br>
+    <a routerLink="hello">Hello</a>
+    <br>
+  </div> -->
+  <!-- <app-blog></app-blog> -->
 
 
 <!-- 
@@ -18,4 +41,4 @@
       <span>{{car}}</span> </li>
   </ul> -->
 
-</div>
+<!-- </div> -->
