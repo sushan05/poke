@@ -1,14 +1,38 @@
 <h1>Blog Posting</h1>
 
-<div>
-    <div style="border-bottom: 1px solid grey; padding-bottom: 15px;">
-        <input class="add-border" type="text" [(ngModel)]="newBlog">
-        <br>
-        <br>
-        <div>
-            <button type="button" class="btn btn-primary" (click)="addNewBlog()">Submit Blog</button>
+<div class="row">
+    <div class="col-sm">
+        <div style="border-bottom: 1px solid grey; padding-bottom: 15px;">
+            <div class="form-group">
+                <label >Name</label>
+                <input class="form-control" [(ngModel)]='name'>
+            </div> 
+            <div class="form-group">
+                <label >Last Name</label>
+                <input class="form-control" [(ngModel)]='lastName'>
+            </div>   
+            <div class="form-group">
+                <label>Age: </label>
+                <input type="number" class="form-control" [(ngModel)]='age'>
+            </div>
+            <div class="form-group">
+                <label>Address</label>
+                <input class="form-control" [(ngModel)]='address'>
+            </div>
+
+            <button type="submit" class="btn btn-default" (click)="addNewUser()" >Submit</button>
+        </div>
+        <app-list [listData]="users" keyName='name' dataInfo="Users List" (viewClick)="viewItem($event)" (deleteClick)="deleteItem($event )"></app-list>
+    </div>
+    <div class="col-sm">
+        <div *ngIf="showUserNumber !== null">
+            <h2>User Info</h2>
+            <div >Name: {{ users[showUserNumber]['name'] }} </div>
+            <div >Last Name: {{ users[showUserNumber]['lastName'] }} </div>
+            <div >Age: {{ users[showUserNumber]['age'] }} </div>
+            <div >Address: {{ users[showUserNumber]['address'] }} </div>
         </div>
     </div>
 
-    <app-list [listData]="blogList" dataInfo="Blog List" (deleteClick)="deleteItem($event )"></app-list>
+    
 </div>

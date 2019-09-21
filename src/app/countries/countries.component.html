@@ -1,0 +1,27 @@
+<!-- <app-list [listData]='countriesList' keyName='name'></app-list> -->
+
+<!-- <div>Today's date is <b> {{ todaysDate | date: 'shortTime'}} </b> </div>
+<div>My Amout {{ amount | currency }}</div>
+<div>My Amout {{ 120.98749867 | number:'4.3-5' }}</div>
+<div>{{ messages.length | i18nPlural: messageMapping }}</div> -->
+
+Country Name : <input type="text" [(ngModel)]='countryName'> <button (click)="searchCountry()">Submit </button>
+
+<!-- <input type="radio" name='hiColor' (click)="color = 'green'">Green <br>
+<input type="radio" name='hiColor' (click)="color = 'red'">Red <br>
+<input type="radio" name='hiColor' (click)="color = 'blue'">blue <br> -->
+
+<div *ngIf="!noCountryFound">
+    name : {{countryInfo['name']}} <br/>
+    population : {{countryInfo['population']}} <br/>
+    capital : {{countryInfo['capital']}} <br/>
+</div>
+
+<ul *ngIf="noCountryFound">
+    <li
+        *ngFor="let country of countriesObservable | async"
+        [appHighlight]="color">
+        {{country['name']}}
+        <b> {{ country['regionalBlocs'] | cntyregionalblocs:'long' }} </b>
+    </li>
+</ul>

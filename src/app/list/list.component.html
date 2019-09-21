@@ -2,7 +2,8 @@
 
 <ul class="list-group">
     <li *ngFor="let item of listData; let i=index" class="list-group-item">
-        {{item}} 
+        {{keyName ? item[keyName] : item}}
+        <button type="button" class="btn btn-success" (click)="viewElement(i)">View</button>
         <button type="button" class="btn btn-danger" (click)="removeElement(i)">Delete</button>
     </li>
 </ul>

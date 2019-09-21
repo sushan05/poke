@@ -8,10 +8,45 @@ import { Component } from '@angular/core';
 })
 export class BlogComponent {
 
+  // Input fields
+  name: string;
+  lastName: string;
+  age: number;
+  address: string;
+
+  // Array to store the list of users
+  users: Array<any> = [];
+
+  showUserNumber: number = null;
   newBlog: string;
   blogList: Array<string> = [];
 
   constructor() { }
+
+  addNewUser(): void {
+    const newUser = {
+      name: this.name,
+      lastName: this.lastName,
+      age: this.age,
+      address: this.address
+    }
+
+    this.users.push(newUser);
+
+    this.users = [...this.users];
+
+    this.resetUserInfo();
+
+    console.log('chekcing users', this.users);
+  }
+
+  resetUserInfo(): void {
+    this.name = this.lastName = this.age = this.address = null;
+  }
+
+  viewItem(index: number) {
+    this.showUserNumber = index;
+  }
 
   addNewBlog(): void {
 
