@@ -18,17 +18,23 @@ import { HighlightDirective } from './highlight.directive';
 import { MarqueeDirective } from './marquee.directive';
 import { CountryregionalblocsPipe } from './countryregionalblocs.pipe';
 
+import { SharedModule } from './shared/shared.module';
+
 const appRoutes: Routes = [
   {path: '', component: BlogComponent},
   {path: 'hello', component: HelloComponent},
   {path: 'countries', component: CountriesComponent},
-
+  {
+    path: 'pokemons',
+    loadChildren: () => import('./pokemon/pokemon.module').then(m => m.PokemonModule)
+  }
 ]
 
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
+    SharedModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
