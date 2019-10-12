@@ -1,0 +1,17 @@
+<form #demoForm="ngForm" (ngSubmit)="onFormSubmit(demoForm)">
+    <div class="form-group"> 
+      <label for="name">Name*</label>
+      <input type="text" name="firstName" class="form-control" id="name" ngModel>
+      <span
+      *ngIf="demoForm.controls.firstName && (demoForm.controls.firstName.touched && demoForm.controls.firstName.invalid)"
+      class="text-danger">This is required field</span>
+    </div>
+
+    <div class="form-group">
+      <label for="myemail">Email id</label>
+      <input type="text" name="myEmail" class="form-control" id="myemail" ngModel>
+    </div>
+
+    <button [disabled]="demoForm.invalid" type="submit" class="btn btn-success">Submit</button>
+
+  </form>

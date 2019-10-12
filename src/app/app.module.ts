@@ -9,6 +9,7 @@ import { HelloComponent } from './hello/hello.component';
 import { BlogComponent } from './blog/blog.component';
 import { UsersComponent } from './users/users.component';
 import { ListComponent } from './list/list.component';
+import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
 
 const appRoutes: Routes = [
   {path: '', component: BlogComponent},
@@ -26,7 +27,8 @@ const appRoutes: Routes = [
     HelloComponent,
     BlogComponent,
     UsersComponent,
-    ListComponent
+    ListComponent,
+    TemplateDrivenFormComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
