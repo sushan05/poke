@@ -6,12 +6,65 @@
 <!-- <button type="button" (click)='onSubmit()'>Submit</button> -->
 
 <form [formGroup]='registerForm'>
-    <label>First Name: 
-        <input type="text" formControlName='firstName'>
-    </label>
-    
-    <label>Last Name: 
-        <input type="text" formControlName='lastName'>
-    </label>
+    <div>
+        <label>First Name: 
+            <input type="text" formControlName='firstName'>
+            <span *ngIf="registerForm.controls.firstName.touched && registerForm.controls.firstName.invalid" class="text-danger">This is required field</span>
+        </label>
+    </div>
+
+    <div>
+        <label>Last Name: 
+            <input type="text" formControlName='lastName'>
+        </label>
+    </div>
+        
+    <div formGroupName='address'>
+        <h3>Address :</h3> 
+        <div>
+            <label>street: 
+                <input type="text" formControlName='street'>
+            </label>
+        </div>
+
+        <div>
+            <label>City : 
+                <input type="text" formControlName='city'>
+            </label>
+        </div>
+
+        <div>
+            <label>State: 
+                <input type="text" formControlName='state'>
+            </label>
+        </div>
+
+        <div>
+            <label>Pin Code: 
+                <input type="text" formControlName='mypincode'>
+                <span *ngIf="registerForm.controls.address.controls.mypincode.touched && registerForm.controls.address.controls.mypincode.invalid" class="text-danger">Pincode is invalide</span>
+            </label>
+        </div>
+    </div>
+
+    <div formArrayName="experience">
+        <h3>Experience</h3> <span><button (click)='addNewForm()'>Add New Experience</button></span>
+
+        <div *ngFor="let expForm of experienceForms.controls; let i=index" [formGroupName]='i'>
+            <div>
+                <label>Years of experience: 
+                    <input type="text" formControlName='years'>
+                </label>
+            </div>
+            <div>
+                <label>Job Profile: 
+                    <input type="text" formControlName='profile'>
+                </label>
+            </div>
+            <button *ngIf="i" (click)="deleteForm(i)">Delete</button>
+            <hr>
+        </div>
+    </div>
+
 </form>
 <button type="button" (click)='onSubmit()'>Submit</button>
