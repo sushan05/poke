@@ -1,7 +1,7 @@
 <form #demoForm="ngForm" (ngSubmit)="onFormSubmit(demoForm)">
     <div class="form-group"> 
       <label for="name">Name*</label>
-      <input type="text" name="firstName" class="form-control" id="name" ngModel>
+      <input type="text" name="firstName" class="form-control" id="name" ngModel required>
       <span
       *ngIf="demoForm.controls.firstName && (demoForm.controls.firstName.touched && demoForm.controls.firstName.invalid)"
       class="text-danger">This is required field</span>
@@ -12,6 +12,18 @@
       <input type="text" name="myEmail" class="form-control" id="myemail" ngModel>
     </div>
 
-    <button [disabled]="demoForm.invalid" type="submit" class="btn btn-success">Submit</button>
+    <div class="form-group">
+      <label for="mypincode">Pin code</label>
+      <input type="text" appPincodeValidator name="mypincode" class="form-control" id="mypincode" ngModel>
+      <span
+        *ngIf="demoForm.controls.mypincode && 
+                demoForm.controls.mypincode.touched 
+                && demoForm.controls.mypincode.invalid"
+        class="text-danger">
+        Pin code is invalide
+      </span>
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
 
   </form>
