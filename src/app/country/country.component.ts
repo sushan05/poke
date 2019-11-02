@@ -16,14 +16,23 @@ export class CountryComponent implements OnInit {
     // let countryName = this._actRoute.snapshot.params.name;
     // this.getCountryInfo(countryName);
 
+    console.log('queryparm = ', this._actRoute.snapshot.queryParams);
+
     this._actRoute.params.subscribe(data => {
       this.getCountryInfo(data.name);
     });
+
+    this._actRoute.queryParams.subscribe(qdata => {
+      console.log("querparm in subscribtion ", qdata);
+      
+    })
   }
 
   getCountryInfo(countryName: string) {
     this._countryService.getCountryInfo(countryName).subscribe(data => {
       this.country = data;
+      console.log(this.country);
+      
     })
   }
 }

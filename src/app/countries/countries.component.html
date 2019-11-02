@@ -5,7 +5,11 @@
         <h1>All Countries</h1>
         <ul type='none'>
             <li *ngFor="let country of countriesData">
-                <a routerLinkActive="active-link" [routerLink]="['/countries', country.name]" (click)='doNavigation(country.name)'>{{country.name}}</a>
+                <a 
+                    routerLinkActive="active-link" 
+                    [routerLink]="['/countries', country.name]"
+                    [queryParams]="{ area: country.area}" 
+                >{{country.name}}</a>
                 <!-- <a (click)='doNavigation(country.name)'>{{country.name}}</a> -->
             </li>
         </ul>
