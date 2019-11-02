@@ -1,0 +1,18 @@
+
+
+<div class="row">
+    <div class="col-sm">
+        <h1>All Countries</h1>
+        <ul type='none'>
+            <li *ngFor="let country of countriesData">
+                <a routerLinkActive="active-link" [routerLink]="['/countries', country.name]" (click)='doNavigation(country.name)'>{{country.name}}</a>
+                <!-- <a (click)='doNavigation(country.name)'>{{country.name}}</a> -->
+            </li>
+        </ul>
+    </div>
+    <div class="col-sm">
+        <div style="position: fixed;">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
