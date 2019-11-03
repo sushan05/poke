@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CountriesService } from '../countries.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-countries',
@@ -13,7 +13,8 @@ export class CountriesComponent implements OnInit {
 
   constructor ( 
     private _countryService: CountriesService, 
-    private _router: Router
+    private _router: Router,
+    private _acRoutes: ActivatedRoute
   ) { }
 
   ngOnInit() {

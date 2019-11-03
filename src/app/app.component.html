@@ -5,7 +5,20 @@
         <a class="nav-link" routerLinkActive="active-link" routerLink="/pokemons">Pokemons</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active-link" routerLink="/countries">Countries</a>
+        <a 
+          class="nav-link"
+          routerLinkActive="active-link"
+          routerLink="/countries"
+          [routerLinkActiveOptions]="{exact:true}"
+        >Countries</a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          routerLinkActive="active-link"
+          routerLink="/countries"
+          [queryParams]="{role: 'admin'}"
+        >Countries</a>
       </li>
     </ul>
    </div>
