@@ -10,5 +10,7 @@
         </div>
     </div>
 
-    <app-list [listData]="blogList" dataInfo="Blog List" (deleteClick)="deleteItem($event )"></app-list>
+    <button class="btn-primary" (click)="showList = !showList">Toggle list component</button>
+    <app-list *ngIf="showList" [listData]="blogList" dataInfo="Blog List" (deleteClick)="deleteItem($event )"></app-list>
+    <!-- <app-list [listData]="blogList"></app-list> -->
 </div>

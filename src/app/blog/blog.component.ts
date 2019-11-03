@@ -8,22 +8,22 @@ import { Component } from '@angular/core';
 })
 export class BlogComponent {
 
+  showList = true;
   newBlog: string;
+  cacheList: Array<string> = [];
   blogList: Array<string> = [];
 
   constructor() { }
 
   addNewBlog(): void {
-
     if(!this.newBlog) {
       return;
     }
 
-    this.blogList.push(this.newBlog);
+    this.cacheList.push(this.newBlog);
     this.newBlog = '';
 
-    console.log(this.blogList);
-    this.blogList = [... this.blogList];
+    this.blogList = [... this.cacheList];
   }
 
   deleteItem(i: number): void {
