@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./hello.component.css']
 })
 export class HelloComponent implements OnInit {
+  show = false;
+  message= 'Hello';
 
   constructor() { }
 
   ngOnInit() {
   }
+
+  method1() {}
+
+  method2() {}
 
 }

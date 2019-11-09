@@ -1,44 +1,14 @@
-<div class="card text-center">
-  <div class="card-header">
-    <ul class="nav nav-pills card-header-pills">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="hello">Hello</a>
-      </li>
-    </ul>
-  </div>
+<div class="container">
+  <app-blog> 
+    <span class="heading">
+      <app-hello></app-hello>
+      <app-hello></app-hello>
+      <app-hello></app-hello>
+      <app-hello></app-hello>
+      People
+    </span>
+    <span class="details">This is the example of content projection</span>
+    <div id="description">This is projection using id as a selector</div>
 
-  <div class="card-body">
-      <router-outlet></router-outlet>
-  </div>
+  </app-blog>  
 </div>
-
-<!-- <div class="container"> -->
-  <!-- <div style="margin-bottom: 10px; border-bottom:1px solid black;">
-    <a routerLink="">Home</a>
-    <br>
-    <a routerLink="hello">Hello</a>
-    <br>
-  </div> -->
-  <!-- <app-blog></app-blog> -->
-
-
-<!-- 
-  <h1>Hello World. This is a new project named {{title}}</h1>
-
-  <input type="text" [value]="title">
-
-  <button (click)="updateText()">Click Me To change the Text</button>
-  <br/>
-  <br/>
-
-  <input type="text" [(ngModel)]="title">
-
-  <ul>
-    <li *ngFor="let car of cars" >
-      <span>{{car}}</span> </li>
-  </ul> -->
-
-<!-- </div> -->

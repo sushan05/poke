@@ -7,8 +7,6 @@ import { AppComponent } from './app.component';
 
 import { HelloComponent } from './hello/hello.component';
 import { BlogComponent } from './blog/blog.component';
-import { UsersComponent } from './users/users.component';
-import { ListComponent } from './list/list.component';
 
 const appRoutes: Routes = [
   {path: '', component: BlogComponent},
@@ -24,9 +22,7 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     HelloComponent,
-    BlogComponent,
-    UsersComponent,
-    ListComponent
+    BlogComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

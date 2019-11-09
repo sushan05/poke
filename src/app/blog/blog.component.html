@@ -1,14 +1,60 @@
-<h1>Blog Posting</h1>
 
-<div>
-    <div style="border-bottom: 1px solid grey; padding-bottom: 15px;">
-        <input class="add-border" type="text" [(ngModel)]="newBlog">
-        <br>
-        <br>
-        <div>
-            <button type="button" class="btn btn-primary" (click)="addNewBlog()">Submit Blog</button>
-        </div>
-    </div>
+<div #divRef> First Information </div>
+<div #divRefs> Second Information </div>
+<div #divReft> Third Information </div>
+<div #divReff> Fourth Information </div>
 
-    <app-list [listData]="blogList" dataInfo="Blog List" (deleteClick)="deleteItem($event )"></app-list>
+<br/>
+
+<div class="form-group">
+    <h3>Example for ng-container tag</h3>
+    <button class="btn-primary" (click)="showOptions = !showOptions;" >Toggle Select Options</button>
+    <br/>
+    <label for="sel1">Select list:</label>
+    <select class="form-control" id="sel1">
+        <ng-container *ngTemplateOutlet="numericOptions"></ng-container>
+    </select>
 </div>
+
+<div class="form-group">
+    <h3>Example for ng-template tag</h3>
+    <button class="btn-primary" (click)="showNumOptions = !showNumOptions;" >Toggle Options Type</button>
+    <br/>
+    <label for="sel1">Select list:</label>
+    <select class="form-control" id="sel1">
+        <ng-container *ngTemplateOutlet="showNumOptions ? numericOptions : alphabetOptions"></ng-container>
+    </select>
+</div>
+    
+
+<br/>
+<br/>
+
+<h1><ng-content select='.heading'></ng-content></h1>
+<p>
+    <ng-content select='.details'></ng-content>
+</p>
+<p>
+    <ng-content select='[id=description]'></ng-content>
+</p>
+
+
+<ng-template #numericOptions>
+    <option>1</option>
+    <ng-container *ngIf="showOptions">
+        <option>2</option>
+        <option>3</option>
+    </ng-container>
+    <option>4</option>
+    <option>5</option>
+    <option>6</option>
+</ng-template>
+
+<ng-template #alphabetOptions>
+    <option>a</option>
+    <option>b</option>
+    <option>c</option>
+    <option>d</option>
+    <option>e</option>
+    <option>f</option>
+</ng-template>

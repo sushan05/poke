@@ -1,33 +1,60 @@
-import { Component } from '@angular/core';
+import { 
+          Component,
+          ContentChild,
+          ContentChildren,
+          ViewChild,
+          ViewChildren,
+          OnInit,
+          AfterContentInit,
+          AfterContentChecked,
+          ElementRef,
+          QueryList,
+          AfterViewInit
+        } from '@angular/core';
+import { HelloComponent } from '../hello/hello.component';
 
 @Component({
   selector: 'app-blog',
   templateUrl: './blog.component.html',
-  styleUrls: ['./blog.component.css'],
-   
+  styleUrls: ['./blog.component.css'], 
 })
-export class BlogComponent {
+export class BlogComponent implements OnInit, AfterViewInit, AfterContentInit, AfterContentChecked {
+  @ViewChild('divRef', {static: true}) divRef: ElementRef;
+  @ViewChildren('divRef, divRefs, divReft, divReff') divRefs: QueryList<ElementRef>;
 
-  newBlog: string;
-  blogList: Array<string> = [];
+  @ContentChild(HelloComponent, {static: false}) helloCom: HelloComponent;
+  @ContentChildren(HelloComponent) helloComs: QueryList<HelloComponent>;
+
+  showOptions = true;
+  showNumOptions = true;
 
   constructor() { }
 
-  addNewBlog(): void {
+  ngOnInit() { }
 
-    if(!this.newBlog) {
-      return;
-    }
+  ngAfterViewInit() {
+    console.log('checking div reference', this.divRef);
+    console.log('checking div reference multiple ', this.divRefs.toArray());
 
-    this.blogList.push(this.newBlog);
-    this.newBlog = '';
-
-    console.log(this.blogList);
-    this.blogList = [... this.blogList];
+    this.divRef.nativeElement.innerHTML = 'Update Information'; 
   }
 
-  deleteItem(i: number): void {
-    this.blogList.splice(i, 1);
+  ngAfterContentInit() {
+    console.log('checking after content init ', [...this.helloComs.toArray()]);
+
+    setTimeout(() => {
+      this.helloCom.message = 'Konnichwa';      
+    }, 1000);
+
+    setTimeout(() => {
+      this.helloComs.toArray().forEach(data => {
+        console.log('itrating projected hello components', data);
+        data.message = "mushi";
+      })
+    }, 2000);
   }
 
+  ngAfterContentChecked() {
+    console.log('checking after checked ', [...this.helloComs.toArray()]);
+  }
 }
