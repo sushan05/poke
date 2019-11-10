@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { SubjectService } from '../subject.service';
 
 @Component({
   selector: 'app-blog',
@@ -6,28 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./blog.component.css'],
    
 })
-export class BlogComponent {
+export class BlogComponent implements OnInit{
+  message = 'blog component'
+  constructor(private _subService: SubjectService) { }
 
-  newBlog: string;
-  blogList: Array<string> = [];
-
-  constructor() { }
-
-  addNewBlog(): void {
-
-    if(!this.newBlog) {
-      return;
-    }
-
-    this.blogList.push(this.newBlog);
-    this.newBlog = '';
-
-    console.log(this.blogList);
-    this.blogList = [... this.blogList];
+  ngOnInit() {
+    this._subService.messageSharing.subscribe(data => {
+      this.message = data;
+    });
   }
-
-  deleteItem(i: number): void {
-    this.blogList.splice(i, 1);
-  }
-
 }
