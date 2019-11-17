@@ -1,7 +1,8 @@
-<h2 *ngIf="listData && listData.length"> {{dataInfo}} </h2>
+<h2 *ngIf="listData && listData.length" [@customFade]="customStateVar" > {{dataInfo}} </h2>
+<button *ngIf="listData && listData.length" type="button" class="btn btn-danger" (click)="updateState()">Alert all items</button>
 
 <ul class="list-group">
-    <li *ngFor="let item of listData; let i=index" class="list-group-item">
+    <li [@customFade]="customStateVar" *ngFor="let item of listData; let i=index" class="list-group-item">
         {{item}} 
         <button type="button" class="btn btn-danger" (click)="removeElement(i)">Delete</button>
     </li>
